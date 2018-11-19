@@ -12,8 +12,11 @@ def pic_urls_gen(web_url):
 
     request = urllib2.Request(web_url)
     request.add_header("user-agent","Mozilla/5.0")
-    html_doc = urllib2.urlopen(request)
-    html=html_doc.read()
+    try:
+            html_doc = urllib2.urlopen(request,data=None,timeout=60)
+            html=html_doc.read()
+    except:
+            return None
 
     soup = BeautifulSoup(html,"html.parser")
     links = soup.find_all('input')

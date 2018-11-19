@@ -21,7 +21,7 @@ def pic_down(picurls,folder_path):
         print picurl
 
         try:
-            picc = urllib2.urlopen(request2,data=None,timeout=10)
+            picc = urllib2.urlopen(request2,data=None,timeout=60)
             picc_content = picc.read()
         except:
             print "Errors, skipping..."

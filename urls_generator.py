@@ -12,11 +12,11 @@ def urls_gen(purl):
     requestall = urllib2.Request(purl)
     requestall.add_header("user-agent","Mozilla/5.0")
     try:
-        html_docall = urllib2.urlopen(requestall,data=None,timeout=10)
+        html_docall = urllib2.urlopen(requestall,data=None,timeout=60)
+        htmlall=html_docall.read()
     except:
         return None
     
-    htmlall=html_docall.read()
     
     soupall = BeautifulSoup(htmlall,"html.parser")
     linksall = soupall.select('h3 > a')
