@@ -9,11 +9,12 @@ import requests
 
 def urls_gen(purl):
     urls = []
+    context = ssl._create_unverified_context()
+
     requestall = urllib2.Request(purl)
     requestall.add_header("user-agent","Mozilla/5.0")
     try:
-        html_docall = urllib2.urlopen(requestall,data=None,timeout=60)
-        htmlall=html_docall.read()
+        html_docall = urllib2.urlopen(requestall,data=None,timeout=10,context=context)
     except:
         return None
     
@@ -26,7 +27,7 @@ def urls_gen(purl):
         if picurlall is not None:
             if 'htm_data' in picurlall:
                 urls.append(purl.split('/')[0] + '//' + purl.split('/')[2] + '/' + picurlall)
-        # if linksall.index(links) > 30:
-            # break
+        if linksall.index(links) > 20:
+            break
     
     return urls

@@ -18,10 +18,12 @@ def pic_down(picurls,folder_path):
         request2.add_header('Connection', 'keep-alive')
 
         print '=== Processing ' + str(picurls.index(picurl)+1) + '/'+ str(len(picurls)) + ' picture ==='
-        print picurl
+        # print picurl
+
+        context = ssl._create_unverified_context()
 
         try:
-            picc = urllib2.urlopen(request2,data=None,timeout=60)
+            picc = urllib2.urlopen(request2,data=None,timeout=60,context=context)
             picc_content = picc.read()
         except:
             print "Errors, skipping..."
@@ -33,7 +35,8 @@ def pic_down(picurls,folder_path):
             os.makedirs(folder_path)  
                 
         img_name = folder_path + str(time.time()).split('.')[0] + '.' + picurl.split("/")[-1].split('.')[-1]
-
+        if os.path.exists(img_name) == False:
+            continue
             
         with open(img_name, 'wb') as file:  
             file.write(picc_content)
