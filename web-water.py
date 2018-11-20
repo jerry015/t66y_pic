@@ -6,7 +6,7 @@ import pic_downloader
 import sys
 
 # purl = sys.argv[1]
-purl="https://cf.cbc.us/thread0806.php?fid=7&search=&page=5"
+purl="https://cf.cbcb.us/thread0806.php?fid=7&search=&page=5"
 
 urls = urls_generator.urls_gen(purl)
 folder_path = './photo/' + str(time.time()).split('.')[0] + "/"
