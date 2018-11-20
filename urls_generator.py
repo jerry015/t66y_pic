@@ -28,7 +28,7 @@ def urls_gen(purl):
         if picurlall is not None:
             if 'htm_data' in picurlall:
                 urls.append(purl.split('/')[0] + '//' + purl.split('/')[2] + '/' + picurlall)
-        if linksall.index(links) > 20:
+        if linksall.index(links) > 13:
             break
     
     return urls
