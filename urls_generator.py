@@ -15,6 +15,7 @@ def urls_gen(purl):
     requestall.add_header("user-agent","Mozilla/5.0")
     try:
         html_docall = urllib2.urlopen(requestall,data=None,timeout=10,context=context)
+        htmlall= html_docall.read()
     except:
         return None
     

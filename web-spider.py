@@ -4,8 +4,8 @@ import pic_share_url_generator
 import pic_downloader
 import sys
 
-purl = sys.argv[1]
-# purl="https://cf.flexui.win/thread0806.php?fid=16&search=&page=3"
+# purl = sys.argv[1]
+purl="https://cf.cbcb.us/thread0806.php?fid=16&search=&page=3"
 
 urls = urls_generator.urls_gen(purl)
 

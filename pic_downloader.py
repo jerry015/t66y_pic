@@ -35,7 +35,7 @@ def pic_down(picurls,folder_path):
             os.makedirs(folder_path)  
                 
         img_name = folder_path + str(time.time()).split('.')[0] + '.' + picurl.split("/")[-1].split('.')[-1]
-        if os.path.exists(img_name) == False:
+        if os.path.exists(img_name) == True:
             continue
             
         with open(img_name, 'wb') as file:  
