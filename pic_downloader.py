@@ -7,7 +7,7 @@ import os
 import time
 # import requests
 import urls_generator
-import pic_share_url_generator
+
 
 def pic_down(picurls,folder_path):
     for picurl in picurls:
