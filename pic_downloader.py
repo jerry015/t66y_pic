@@ -1,32 +1,32 @@
-import cookielib
-import urllib2
+# import cookielib
+import urllib
 import re
 from bs4 import BeautifulSoup
 import ssl
 import os
 import time
-import requests
+# import requests
 import urls_generator
 import pic_share_url_generator
 
 def pic_down(picurls,folder_path):
     for picurl in picurls:
-        request2 = urllib2.Request(picurl) 
+        request2 = urllib.request.Request(picurl) 
         request2.add_header('User-Agent', 'Mozilla/5.0')
         request2.add_header('Accept', 'image/png,image/*;q=0.8,*/*;q=0.5')
         request2.add_header('Accept-Language', 'zh-cn,zh;q=0.8,en-us;q=0.5,en;q=0.3')
         request2.add_header('Connection', 'keep-alive')
 
-        print '=== Processing ' + str(picurls.index(picurl)+1) + '/'+ str(len(picurls)) + ' picture ==='
+        print ('=== Processing ' + str(picurls.index(picurl)+1) + '/'+ str(len(picurls)) + ' picture ===')
         # print picurl
 
         context = ssl._create_unverified_context()
 
         try:
-            picc = urllib2.urlopen(request2,data=None,timeout=60,context=context)
+            picc = urllib.request.urlopen(request2,data=None,timeout=60,context=context)
             picc_content = picc.read()
         except:
-            print "Errors, skipping..."
+            print ("Errors, skipping...")
             time.sleep(1)
             continue
 
@@ -42,7 +42,7 @@ def pic_down(picurls,folder_path):
             file.write(picc_content)
             file.flush()
             file.close()  
-            print "=== Download Finished ==="
+            print ("=== Download Finished ===")
         
         time.sleep(1) 
 
