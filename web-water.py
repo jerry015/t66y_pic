@@ -3,6 +3,7 @@ import urls_generator
 import pic_downloader
 import sys
 import urllib
+import urllib.request
 import ssl
 from bs4 import BeautifulSoup
 
@@ -34,19 +35,22 @@ def pic_urls_gen(web_url):
 
 # purl = sys.argv[1]
 www = "hh.flexui.win"
-page = 1
-purl="https://" + www + "/thread0806.php?fid=7&search=&page=" + str(page)
+# page = 1
+pages = range(1,51)
+for page in pages:
+    print('################  Water Processing Page ' + str(page) + '  ##################')
+    purl="https://" + www + "/thread0806.php?fid=7&search=&page=" + str(page)
 
-urls = urls_generator.urls_gen(purl)
-if urls:
-    urls = list(set(urls))
-    folder_path = './photo/' + str(time.time()).split('.')[0] + "/"
+    urls = urls_generator.urls_gen(purl)
+    if urls:
+        urls = list(set(urls))
+        folder_path = './photo/' + str(time.time()).split('.')[0] + "/"
 
-    for url in urls:
-        print ("=== Processing "+ str(urls.index(url)+1) + "/" + str(len(urls)) + " url ===")
-        # print url
-        picurls = pic_urls_gen(url)
-        if picurls is not None:
-            picurls = list(set(picurls))
-            pic_downloader.pic_down(picurls,folder_path)
-            time.sleep(5)
+        for url in urls:
+            print ("=== Processing "+ str(urls.index(url)+1) + "/" + str(len(urls)) + " url ===")
+            # print url
+            picurls = pic_urls_gen(url)
+            if picurls is not None:
+                picurls = list(set(picurls))
+                pic_downloader.pic_down(picurls,folder_path)
+                time.sleep(5)
