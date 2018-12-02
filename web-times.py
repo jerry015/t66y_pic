@@ -47,6 +47,6 @@ for page in pages:
             print ("=== Processing "+ str(urls.index(url)+1) + "/" + str(len(urls)) + " url ===")
             picurls = pic_urls_gen(url)
             if picurls:
-                picurls = list(set(picurls))
+                # picurls = list(set(picurls))
                 pic_downloader.pic_down(picurls,folder_path)
                 time.sleep(5)

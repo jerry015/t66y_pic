@@ -51,6 +51,6 @@ for page in pages:
             # print url
             picurls = pic_urls_gen(url)
             if picurls is not None:
-                picurls = list(set(picurls))
+                # picurls = list(set(picurls))
                 pic_downloader.pic_down(picurls,folder_path)
                 time.sleep(5)
