@@ -34,9 +34,10 @@ def pic_urls_gen(web_url):
 
 
 # purl = sys.argv[1]
+x = sys.argv[1]
+y = sys.argv[2]
 www = "hh.flexui.win"
-# page = 1
-pages = range(1,51)
+pages = range(int(x), int(y)+1)
 for page in pages:
     print('################  Water Processing Page ' + str(page) + '  ##################')
     purl="https://" + www + "/thread0806.php?fid=7&search=&page=" + str(page)

@@ -23,7 +23,7 @@ def pic_down(picurls,folder_path):
         context = ssl._create_unverified_context()
 
         try:
-            picc = urllib.request.urlopen(request2,data=None,timeout=60,context=context)
+            picc = urllib.request.urlopen(request2,data=None,timeout=30,context=context)
             picc_content = picc.read()
         except:
             print ("Errors, skipping...")

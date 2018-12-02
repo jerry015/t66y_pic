@@ -16,7 +16,7 @@ def pic_urls_gen(web_url):
     request = urllib.request.Request(web_url)
     request.add_header("user-agent","Mozilla/5.0")
     try:
-            html_doc = urllib.request.urlopen(request,data=None,timeout=60,context=context)
+            html_doc = urllib.request.urlopen(request,data=None,timeout=10,context=context)
             html=html_doc.read()
     except:
             return None
@@ -32,8 +32,11 @@ def pic_urls_gen(web_url):
     return pic_urls
 
 # purl = sys.argv[1]
+x = sys.argv[1]
+y = sys.argv[2]
 www = "hh.flexui.win"
-pages = range(51,56)
+pages = range(int(x), int(y)+1)
+
 for page in pages:
     print('################  ShiDai Processing Page ' + str(page) + '  ##################')
     purl="https://" + www + "/thread0806.php?fid=8&search=&page=" + str(page)
