@@ -41,7 +41,7 @@ for page in pages:
     urls = urls_generator.urls_gen(purl)
     if urls:
         urls = list(set(urls))
-        folder_path = './photo/' + str(time.time()).split('.')[0] + "/"
+        folder_path = './photo/qizhi_' + str(time.time()).split('.')[0] + "/"
 
         for url in urls:
             print ("=== Processing "+ str(urls.index(url)+1) + "/" + str(len(urls)) + " url ===")

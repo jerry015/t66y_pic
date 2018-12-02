@@ -33,7 +33,7 @@ def pic_urls_gen(web_url):
 
 # purl = sys.argv[1]
 www = "hh.flexui.win"
-pages = range(1,51)
+pages = range(51,56)
 for page in pages:
     print('################  ShiDai Processing Page ' + str(page) + '  ##################')
     purl="https://" + www + "/thread0806.php?fid=8&search=&page=" + str(page)
@@ -41,7 +41,7 @@ for page in pages:
     urls = urls_generator.urls_gen(purl)
     if urls:
         urls = list(set(urls))
-        folder_path = './photo/' + str(time.time()).split('.')[0] + "/"
+        folder_path = './photo/time_' + str(time.time()).split('.')[0] + "/"
 
         for url in urls:
             print ("=== Processing "+ str(urls.index(url)+1) + "/" + str(len(urls)) + " url ===")
