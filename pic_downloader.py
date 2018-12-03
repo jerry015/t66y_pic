@@ -11,7 +11,10 @@ import urls_generator
 
 def pic_down(picurls,folder_path):
     for picurl in picurls:
-        request2 = urllib.request.Request(picurl) 
+        try:
+            request2 = urllib.request.Request(picurl) 
+        except:
+            continue
         request2.add_header('User-Agent', 'Mozilla/5.0')
         request2.add_header('Accept', 'image/png,image/*;q=0.8,*/*;q=0.5')
         request2.add_header('Accept-Language', 'zh-cn,zh;q=0.8,en-us;q=0.5,en;q=0.3')

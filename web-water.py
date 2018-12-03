@@ -12,7 +12,10 @@ def pic_urls_gen(web_url):
 
     context = ssl._create_unverified_context()
 
-    request = urllib.request.Request(web_url)
+    try:
+        request = urllib.request.Request(web_url)
+    except:
+        continue
     request.add_header("user-agent","Mozilla/5.0")
     try:
         html_doc = urllib.request.urlopen(request,data=None,timeout=10,context=context)

@@ -11,7 +11,10 @@ def urls_gen(purl):
     urls = []
     context = ssl._create_unverified_context()
 
-    requestall = urllib.request.Request(purl)
+    try:
+        requestall = urllib.request.Request(purl)
+    except:
+        continue
     requestall.add_header("user-agent","Mozilla/5.0")
     try:
         html_docall = urllib.request.urlopen(requestall,data=None,timeout=10,context=context)
